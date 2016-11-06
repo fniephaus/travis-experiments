@@ -5,6 +5,7 @@ sudo: required
 before_script:
   - ulimit -r
   - wget https://raw.githubusercontent.com/hpi-swa/smalltalkCI/dev/utils/set_rtprio_limit.c
+  - gcc -o set_rtprio_limit set_rtprio_limit.c
   - chmod +x set_rtprio_limit
   - PID=$$
   - sudo ./set_rtprio_limit $PID
