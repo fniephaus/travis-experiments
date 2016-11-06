@@ -4,10 +4,10 @@ sudo: required
 
 before_script:
   - ulimit -r
-  - gcc -o set_rtprio_limit set_rtprio_limit.c
-  - chmod +x set_rtprio_limit
+  - wget https://dl.bintray.com/hpi-swa-lab/smalltalkCI/prlimit
+  - chmod +x prlimit
   - PID=$$
-  - sudo ./set_rtprio_limit $PID 2 2
+  - sudo ./prlimit --pid=$PID --rtprio=2:2
   - ulimit -r
 
 script:
