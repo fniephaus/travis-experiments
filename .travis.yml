@@ -6,7 +6,10 @@ before_script:
   - ulimit -r
   - echo "* hard rtprio 2" | sudo tee -a "/etc/security/limits.d/squeak.conf" > /dev/null
   - echo "* soft rtprio 2" | sudo tee -a "/etc/security/limits.d/squeak.conf" > /dev/null
-  - sudo su ${USER}
+  - PID=$$
+  - sudo prlimit --pid $PID --rtprio=2:2
+  - ulimit -r
+  - prlimit --pid $PID --rtprio=2:2
   - ulimit -r
 
 script:
