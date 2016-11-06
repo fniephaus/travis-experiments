@@ -4,11 +4,10 @@ sudo: required
 
 before_script:
   - ulimit -r
-  - wget https://dl.bintray.com/hpi-swa-lab/smalltalkCI/set_rtprio_limit
+  - wget https://raw.githubusercontent.com/hpi-swa/smalltalkCI/dev/utils/set_rtprio_limit.c
   - chmod +x set_rtprio_limit
   - PID=$$
   - sudo ./set_rtprio_limit $PID
-  - ulimit -r
 
 script:
  - ulimit -r
