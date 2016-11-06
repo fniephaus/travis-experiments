@@ -16,20 +16,17 @@ struct rlimit old, new;
 struct rlimit *newp;
 pid_t pid;
 
-if (!(argc == 2 || argc == 4)) {
-fprintf(stderr, "Usage: %s <pid> [<new-soft-limit> "
-"<new-hard-limit>]\n", argv[0]);
+if (!(argc == 2)) {
+fprintf(stderr, "Usage: %s <pid>\n", argv[0]);
 exit(EXIT_FAILURE);
 }
 
 pid = atoi(argv[1]); /* PID of target process */
 
 newp = NULL;
-if (argc == 4) {
-new.rlim_cur = atoi(argv[2]);
-new.rlim_max = atoi(argv[3]);
+new.rlim_cur = 2;
+new.rlim_max = 2;
 newp = &new;
-}
 
 /* Set CPU time limit of target process; retrieve and display
 previous limit */
@@ -46,5 +43,5 @@ errExit("prlimit-2");
 printf("New limits: soft=%lld; hard=%lld\n",
 (long long) old.rlim_cur, (long long) old.rlim_max);
 
-exit(EXIT_FAILURE);
+exit();
 }
