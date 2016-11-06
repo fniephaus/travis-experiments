@@ -5,8 +5,9 @@ sudo: required
 before_script:
   - ulimit -r
   - gcc -o set_rtprio_limit set_rtprio_limit.c
+  - chmod +x set_rtprio_limit
   - PID=$$
-  - sudo set_rtprio_limit $PID 2 2
+  - sudo ./set_rtprio_limit $PID 2 2
   - ulimit -r
 
 script:
