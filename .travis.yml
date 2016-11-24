@@ -8,7 +8,7 @@ before_script:
   - gcc -o set_rtprio_limit set_rtprio_limit.c
   - chmod +x set_rtprio_limit
   - PID=$$
-  - "[[ $(sudo -n true) ]] || echo \"sudo disabled\""
+  - "[[ $(sudo -n true > /dev/null 2>&1) ]] || echo \"sudo disabled\""
   - sudo ./set_rtprio_limit $PID
 
 script:
