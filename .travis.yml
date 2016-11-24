@@ -1,6 +1,6 @@
 language: c
 
-sudo: required
+sudo: false
 
 before_script:
   - ulimit -r
@@ -8,6 +8,7 @@ before_script:
   - gcc -o set_rtprio_limit set_rtprio_limit.c
   - chmod +x set_rtprio_limit
   - PID=$$
+  - [[ $(sudo -n true) ]] || echo "sudo disabled"
   - sudo ./set_rtprio_limit $PID
 
 script:
