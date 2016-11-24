@@ -1,6 +1,6 @@
 language: c
 
-sudo: required
+sudo: false
 
 before_script:
   - ulimit -r
