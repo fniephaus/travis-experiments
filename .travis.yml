@@ -1,15 +1,18 @@
-language: c
-
+language: smalltalk
 sudo: false
 
-before_script:
-  - ulimit -r
-  - wget https://raw.githubusercontent.com/hpi-swa/smalltalkCI/dev/utils/set_rtprio_limit.c
-  - gcc -o set_rtprio_limit set_rtprio_limit.c
-  - chmod +x set_rtprio_limit
-  - PID=$$
-  - "sudo true > /dev/null 2>&1 || echo \"sudo disabled\""
-  - sudo ./set_rtprio_limit $PID
+os:
+  - osx
 
+smalltalk:
+  - Squeak-5.1
+  - Pharo-6.0
+  - GemStone-3.3.0
+  
+smalltalk_config:
+  - a.ston
+  - b.ston
+  
 script:
- - ulimit -r
+  - echo $TRAVIS_SMALLTALK_VERSION
+  - echo $TRAVIS_SMALLTALK_CONFIG
