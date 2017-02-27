@@ -2,3 +2,7 @@ language: python
 python: pypy
 script: pypy --version
 sudo: required
+dist: trusty
+matrix:
+  include:
+    - os: osx
