@@ -1,3 +1,4 @@
 language: python
 python: pypy
 script: pypy --version
+sudo: required
