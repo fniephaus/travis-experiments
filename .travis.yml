@@ -1,18 +1,3 @@
-language: smalltalk
-sudo: false
-
-os:
-  - osx
-
-smalltalk:
-  - Squeak-5.1
-  - Pharo-6.0
-  - GemStone-3.3.0
-  
-smalltalk_config:
-  - a.ston
-  - b.ston
-  
-script:
-  - echo $TRAVIS_SMALLTALK_VERSION
-  - echo $TRAVIS_SMALLTALK_CONFIG
+language: python
+python: pypy
+script: pypy --version
