@@ -2,14 +2,17 @@ language: smalltalk
 sudo: false
 
 os:
-  - osx
+  - linux
 
+smalltalk:
+  - Squeak-5.1
+  - Pharo-6.0
+  - GemStone-3.3.0
 
-  
-smalltalk_config:
-  - a.ston
-  - b.ston
-  - c.ston
+jobs:
+  include:
+    - smalltalk_config: a.ston
+    - smalltalk_config: b.ston
   
 script:
   - echo $TRAVIS_SMALLTALK_VERSION
