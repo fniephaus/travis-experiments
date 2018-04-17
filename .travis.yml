@@ -4,14 +4,12 @@ sudo: false
 os:
   - osx
 
-smalltalk:
-  - Squeak-5.1
-  - Pharo-6.0
-  - GemStone-3.3.0
+
   
 smalltalk_config:
   - a.ston
   - b.ston
+  - c.ston
   
 script:
   - echo $TRAVIS_SMALLTALK_VERSION
